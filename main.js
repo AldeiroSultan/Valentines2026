@@ -245,5 +245,20 @@
         // Set background music volume
         const bgMusic = document.getElementById('bg-music');
         if (bgMusic) {
-            bgMusic.volume = 0.5;
+            bgMusic.volume = 1.0;
         }
+
+        // Music toggle button
+        const musicToggle = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.textContent = '🔇';
+            } else {
+                bgMusic.play();
+                musicToggle.textContent = '🎵';
+            }
+            isPlaying = !isPlaying;
+        });
