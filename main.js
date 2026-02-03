@@ -5,11 +5,11 @@
             'https://gifdb.com/images/thumbnail/hunter-x-hunter-protagonist-gon-crying-si1cgi5ktuo72m9x.webp',
             'https://gifdb.com/images/high/gon-freecss-oblivious-while-emitting-nen-31eqmd2hyomydu5a.webp',
             'https://gifdb.com/images/high/gon-freecss-smiling-awkwardly-hunter-x-hunter-wj095tfp0bn137o7.webp',
-            'https://64.media.tumblr.com/87d1c56bddd59f5bc59e0e83a0cb0c73/76aad97a4107ede9-f9/s400x600/8c7c71abc35dc88e93f2b88ff2af54f6be5dc30f.gifv'
+            'https://gifdb.com/images/high/gon-freecss-overwhelmed-with-numbers-tj7g93xizm9rp128.webp'
         ];
 
         const subTexts = [
-            'I really really like you~ 💚',
+            'I really really like you~ ❤️',
             'Why not?? :(',
             'But I\'m your boyfriend... 😢',
             'I got something special for you!',
@@ -21,11 +21,11 @@
 
         const bgColors = [
             'var(--cream)',
-            '#c8e6c9',
-            '#b3e5fc', 
-            '#ffe0b2',
-            '#f8bbd9',
-            '#ffcdd2'
+            'var(--flamingo)',
+            'var(--salmon)',
+            'var(--peach)',
+            'var(--coral)',
+            'var(--watermelon)'
         ];
 
         let noClickCount = 0;
@@ -68,7 +68,7 @@
         function handleYes() {
             showConfetti();
             mainGif.src = 'https://gifdb.com/images/thumbnail/gon-freecss-playing-with-fire-3yh3uavy5hm9bqec.webp';
-            subText.textContent = 'YAY!! I KNEW IT!! 💚💕';
+            subText.textContent = 'YAY!! I KNEW IT!! ❤️💕';
             yesBtn.style.display = 'none';
             noBtn.style.display = 'none';
             
@@ -86,7 +86,7 @@
             container.style.display = 'block';
             container.innerHTML = '';
             
-            const items = ['❤️', '💚', '💕', '✨', '🌟', '💖', '🎉'];
+            const items = ['❤️', '❤️', '💕', '✨', '🌟', '💖'];
             
             for (let i = 0; i < 40; i++) {
                 const confetti = document.createElement('div');
@@ -129,9 +129,10 @@
         function spawnHeart() {
             if (!gameActive) return;
             
-            const heart = document.createElement('div');
+            const heart = document.createElement('img');
             heart.className = 'falling-heart';
-            heart.textContent = '❤️';
+            heart.src = 'heart.png';
+            heart.alt = 'Heart';
             
             const gameWidth = gameArea.offsetWidth;
             heart.style.left = (Math.random() * (gameWidth - 50) + 25) + 'px';
@@ -240,3 +241,9 @@
             }
         `;
         document.head.appendChild(style);
+
+        // Set background music volume
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic) {
+            bgMusic.volume = 0.5;
+        }

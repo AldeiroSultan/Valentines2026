@@ -6,6 +6,12 @@
             --green-gon: #1a8a4c;
             --dark-shadow: #2d1a24;
             --yellow: #ffd93d;
+            --rose: #fc94af;
+            --flamingo: #fda4ba;
+            --salmon: #fdab9f;
+            --peach:#fc9483;
+            --coral: #fe7d6a;
+            --watermelon:#fc4c4e;
         }
 
         * {
@@ -234,21 +240,21 @@
 
         /* ==================== PAGE 2: Heart Game ==================== */
         #game-page {
-            background: var(--green-gon);
+            background: var(--rose);
         }
 
         #game-page .card {
-            background: var(--yellow);
+            background: var(--pink-bg);
             max-width: 500px;
         }
 
         .game-title {
             font-family: 'Bangers', cursive;
             font-size: 2.5rem;
-            color: var(--red);
+            color: var(--cream);
             text-shadow: 
                 3px 3px 0 var(--dark-shadow),
-                -2px -2px 0 var(--cream);
+                -2px -2px 0 var(--red);
             text-align: center;
             margin-bottom: 10px;
         }
