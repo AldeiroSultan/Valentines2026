@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine 💚</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Chewy&family=Fredoka+One&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Corner hearts -->
+    <div class="corner-heart tl">❤️</div>
+    <div class="corner-heart tr">❤️</div>
+    <div class="corner-heart bl">❤️</div>
+    <div class="corner-heart br">❤️</div>
+    <div class="corner-heart tm">💕</div>
+    <div class="corner-heart bm">💕</div>
+
+    <!-- Confetti container -->
+    <div class="confetti-container" id="confetti"></div>
+
+    <!-- PAGE 1: Question Page -->
+    <div class="page active" id="question-page">
+        <div class="card">
+            <div class="sparkle-container">
+                <div class="gif-container">
+                    <img src="https://gifdb.com/images/high/hunter-x-hunter-cute-bleh-72v2f9ht1cfjt2lr.webp" alt="Gon" id="main-gif">
+                </div>
+                <div class="sparkle s1"></div>
+                <div class="sparkle s2"></div>
+                <div class="sparkle s3"></div>
+                <div class="sparkle s4"></div>
+                <div class="sparkle s5"></div>
+                <div class="sparkle s6"></div>
+            </div>
+            <h1 class="main-title">WILL YOU BE MY VALENTINE?</h1>
+            <p class="sub-text" id="sub-text">I really really like you~ 💚</p>
+            <div class="buttons-container">
+                <button class="btn btn-yes" id="yes-btn">YES! 💕</button>
+                <button class="btn btn-no" id="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: Heart Catching Game -->
+    <div class="page" id="game-page">
+        <div class="card">
+            <h2 class="game-title">CATCH MY LOVE!</h2>
+            <p class="score-display">Hearts: <span class="hearts-count" id="score">0</span> / 5</p>
+            <div class="game-area" id="game-area">
+                <div class="basket" id="basket">🧺</div>
+            </div>
+            <p class="game-instruction">Move to catch the hearts! 💕</p>
+        </div>
+    </div>
+
+    <!-- PAGE 3: Envelope Page -->
+    <div class="page" id="envelope-page">
+        <div>
+            <h2 class="envelope-title">I HAVE SOMETHING FOR YOU...</h2>
+            <div class="envelope" id="envelope">
+                <div class="envelope-inner"></div>
+                <div class="envelope-body"></div>
+                <div class="envelope-flap"></div>
+                <div class="envelope-seal">💚</div>
+            </div>
+            <p class="envelope-hint">👆 Click to open!</p>
+        </div>
+    </div>
+
+    <!-- Letter Modal -->
+    <div class="letter-overlay" id="letter-overlay">
+        <div class="letter">
+            <span class="letter-close" id="letter-close">✕</span>
+            <div class="letter-content">
+                <p class="letter-greeting">My Dearest Valentine,</p>
+                <p>From the moment I met you, my world became brighter - just like how Gon sees the light in everyone around him!</p>
+                <p>You make every ordinary day feel like an adventure. Thank you for being my partner, my best friend, and my greatest treasure.</p>
+                <p>I promise to always stand by your side, protect your smile, and love you with all my heart - no matter what!</p>
+                <p>You are my greatest discovery, and I'm SO happy you said YES! 💚</p>
+                <p class="letter-signature">Forever yours,<br>Your Valentine 💕</p>
+            </div>
+            <div class="letter-hearts">💚 ❤️ 💚</div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

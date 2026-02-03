@@ -1,0 +1,629 @@
+        :root {
+            --cream: #f5e6c8;
+            --pink-bg: #f8b4c4;
+            --hot-pink: #e91e8c;
+            --red: #e63946;
+            --green-gon: #1a8a4c;
+            --dark-shadow: #2d1a24;
+            --yellow: #ffd93d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Chewy', cursive;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--cream);
+        }
+
+        /* Corner hearts decoration */
+        .corner-heart {
+            position: fixed;
+            font-size: 24px;
+            z-index: 100;
+            filter: drop-shadow(2px 2px 0 var(--dark-shadow));
+        }
+        .corner-heart.tl { top: 10px; left: 10px; }
+        .corner-heart.tr { top: 10px; right: 10px; }
+        .corner-heart.bl { bottom: 10px; left: 10px; }
+        .corner-heart.br { bottom: 10px; right: 10px; }
+        .corner-heart.tm { top: 10px; left: 50%; transform: translateX(-50%); }
+        .corner-heart.bm { bottom: 10px; left: 50%; transform: translateX(-50%); }
+
+        /* Page container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page.active {
+            display: flex;
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Main card with scalloped border */
+        .card {
+            background: var(--pink-bg);
+            padding: 40px 30px;
+            max-width: 420px;
+            width: 100%;
+            position: relative;
+            border: 4px solid var(--cream);
+            box-shadow: 
+                0 0 0 4px var(--hot-pink),
+                8px 8px 0 var(--dark-shadow);
+        }
+
+        /* Cloud-like edge effect using radial gradients */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            background: 
+                radial-gradient(circle at 0 25%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 0 50%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 0 75%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 100% 25%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 100% 50%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 100% 75%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px);
+            background-size: 16px 32px;
+            background-position: left, right;
+            background-repeat: repeat-y;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            background: 
+                radial-gradient(circle at 25% 0, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 50% 0, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 75% 0, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 25% 100%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 50% 100%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px),
+                radial-gradient(circle at 75% 100%, transparent 8px, var(--cream) 8px, var(--cream) 16px, transparent 16px);
+            background-size: 32px 16px;
+            background-position: top, bottom;
+            background-repeat: repeat-x;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* GIF container */
+        .gif-container {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 25px;
+            border: 5px solid var(--cream);
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 
+                0 0 0 4px var(--hot-pink),
+                6px 6px 0 var(--dark-shadow);
+            background: white;
+        }
+
+        .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Chunky retro text */
+        .main-title {
+            font-family: 'Bangers', cursive;
+            font-size: 3.2rem;
+            color: var(--hot-pink);
+            text-shadow: 
+                4px 4px 0 var(--dark-shadow),
+                -2px -2px 0 var(--cream),
+                2px -2px 0 var(--cream),
+                -2px 2px 0 var(--cream);
+            text-align: center;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            transform: rotate(-2deg);
+        }
+
+        .sub-text {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.4rem;
+            color: var(--dark-shadow);
+            text-align: center;
+            margin-bottom: 30px;
+            min-height: 35px;
+        }
+
+        /* Sparkle lines around elements */
+        .sparkle-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background: var(--dark-shadow);
+            border-radius: 2px;
+        }
+
+        .sparkle.s1 { top: 20%; left: -30px; transform: rotate(-30deg); }
+        .sparkle.s2 { top: 50%; left: -35px; transform: rotate(0deg); }
+        .sparkle.s3 { top: 80%; left: -30px; transform: rotate(30deg); }
+        .sparkle.s4 { top: 20%; right: -30px; transform: rotate(30deg); }
+        .sparkle.s5 { top: 50%; right: -35px; transform: rotate(0deg); }
+        .sparkle.s6 { top: 80%; right: -30px; transform: rotate(-30deg); }
+
+        /* Buttons */
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Fredoka One', cursive;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            transition: transform 0.15s ease;
+        }
+
+        .btn:active {
+            transform: translate(3px, 3px);
+        }
+
+        .btn-yes {
+            background: var(--red);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            border: 4px solid var(--cream);
+            box-shadow: 
+                0 0 0 3px var(--dark-shadow),
+                5px 5px 0 var(--dark-shadow);
+            border-radius: 8px;
+        }
+
+        .btn-yes:active {
+            box-shadow: 
+                0 0 0 3px var(--dark-shadow),
+                2px 2px 0 var(--dark-shadow);
+        }
+
+        .btn-no {
+            background: var(--cream);
+            color: var(--dark-shadow);
+            padding: 12px 30px;
+            font-size: 1rem;
+            border: 3px solid var(--dark-shadow);
+            box-shadow: 4px 4px 0 var(--dark-shadow);
+            border-radius: 6px;
+        }
+
+        .btn-no:active {
+            box-shadow: 2px 2px 0 var(--dark-shadow);
+        }
+
+        /* ==================== PAGE 2: Heart Game ==================== */
+        #game-page {
+            background: var(--green-gon);
+        }
+
+        #game-page .card {
+            background: var(--yellow);
+            max-width: 500px;
+        }
+
+        .game-title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: var(--red);
+            text-shadow: 
+                3px 3px 0 var(--dark-shadow),
+                -2px -2px 0 var(--cream);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .score-display {
+            font-family: 'Chewy', cursive;
+            font-size: 1.3rem;
+            color: var(--dark-shadow);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .hearts-count {
+            color: var(--red);
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+        }
+
+        .game-area {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            background: var(--cream);
+            border: 4px solid var(--dark-shadow);
+            box-shadow: 5px 5px 0 var(--dark-shadow);
+            overflow: hidden;
+            touch-action: none;
+            border-radius: 8px;
+        }
+
+        .basket {
+            position: absolute;
+            bottom: 8px;
+            width: 70px;
+            height: 55px;
+            transform: translateX(-50%);
+            transition: left 0.08s linear;
+            z-index: 10;
+            font-size: 45px;
+            text-align: center;
+            filter: drop-shadow(2px 2px 0 var(--dark-shadow));
+        }
+
+        .falling-heart {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(2px 2px 0 var(--dark-shadow));
+            z-index: 5;
+        }
+
+        .catch-effect {
+            position: absolute;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            color: var(--red);
+            text-shadow: 2px 2px 0 var(--dark-shadow);
+            animation: catchPop 0.5s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes catchPop {
+            0% { transform: scale(1) translateY(0); opacity: 1; }
+            100% { transform: scale(1.5) translateY(-40px); opacity: 0; }
+        }
+
+        .game-instruction {
+            font-family: 'Bubblegum Sans', cursive;
+            margin-top: 15px;
+            color: var(--dark-shadow);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* ==================== PAGE 3: Envelope ==================== */
+        #envelope-page {
+            background: var(--hot-pink);
+        }
+
+        .envelope-title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.2rem;
+            color: var(--cream);
+            text-shadow: 
+                3px 3px 0 var(--dark-shadow);
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            position: relative;
+            cursor: pointer;
+            margin: 0 auto;
+            transition: transform 0.2s ease;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .envelope:active {
+            transform: scale(1.02);
+        }
+
+        .envelope-body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--cream);
+            border: 4px solid var(--dark-shadow);
+            box-shadow: 6px 6px 0 var(--dark-shadow);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: var(--cream);
+            border: 4px solid var(--dark-shadow);
+            border-bottom: none;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            transform-origin: top center;
+            transition: transform 0.5s ease;
+            z-index: 3;
+        }
+
+        .envelope-flap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #e8d4b8 0%, var(--cream) 100%);
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+        }
+
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-seal {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 55px;
+            height: 55px;
+            background: var(--red);
+            border-radius: 50%;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 3px solid var(--dark-shadow);
+            box-shadow: 3px 3px 0 var(--dark-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .envelope.open .envelope-seal {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0) rotate(180deg);
+        }
+
+        .envelope-inner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: var(--pink-bg);
+            border: 2px dashed var(--hot-pink);
+            border-radius: 2px;
+            z-index: 0;
+        }
+
+        .envelope-hint {
+            font-family: 'Bubblegum Sans', cursive;
+            margin-top: 25px;
+            color: var(--cream);
+            font-size: 1.2rem;
+            text-align: center;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Letter Modal */
+        .letter-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 26, 36, 0.9);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .letter-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .letter {
+            width: 100%;
+            max-width: 450px;
+            max-height: 85vh;
+            background: var(--cream);
+            padding: 35px 30px;
+            position: relative;
+            border: 4px solid var(--dark-shadow);
+            box-shadow: 8px 8px 0 var(--dark-shadow);
+            animation: letterPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow-y: auto;
+        }
+
+        @keyframes letterPop {
+            0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 3px dashed var(--hot-pink);
+            pointer-events: none;
+        }
+
+        .letter-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 28px;
+            color: var(--dark-shadow);
+            cursor: pointer;
+            font-family: 'Fredoka One', cursive;
+            transition: transform 0.2s ease;
+            z-index: 10;
+        }
+
+        .letter-close:hover {
+            transform: scale(1.2) rotate(90deg);
+            color: var(--red);
+        }
+
+        .letter-content {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.35rem;
+            color: var(--dark-shadow);
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .letter-content p {
+            margin-bottom: 18px;
+        }
+
+        .letter-greeting {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: var(--hot-pink);
+            text-shadow: 2px 2px 0 var(--dark-shadow);
+            margin-bottom: 20px;
+        }
+
+        .letter-signature {
+            text-align: right;
+            font-family: 'Bangers', cursive;
+            font-size: 1.6rem;
+            color: var(--red);
+            text-shadow: 2px 2px 0 var(--dark-shadow);
+            margin-top: 25px;
+        }
+
+        .letter-hearts {
+            text-align: center;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        /* Confetti */
+        .confetti-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            font-size: 24px;
+            animation: confettiFall 3s linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.4rem;
+            }
+            
+            .gif-container {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .card {
+                padding: 30px 20px;
+            }
+            
+            .buttons-container {
+                gap: 15px;
+            }
+            
+            .btn-yes {
+                padding: 14px 32px;
+                font-size: 1.1rem;
+            }
+            
+            .btn-no {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+            
+            .game-area {
+                height: 320px;
+            }
+            
+            .envelope {
+                width: 260px;
+                height: 170px;
+            }
+            
+            .letter {
+                padding: 30px 25px;
+            }
+            
+            .letter-content {
+                font-size: 1.2rem;
+            }
+        }
